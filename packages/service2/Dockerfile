@@ -3,5 +3,5 @@ RUN mkdir -p /app
 ADD . /app
 WORKDIR /app
 RUN yarn --frozen-lockfile
-CMD ["yarn", "start"]
+CMD ["yarn", "run", "start:production"]
 EXPOSE 3001

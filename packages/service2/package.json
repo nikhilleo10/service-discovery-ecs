@@ -7,11 +7,12 @@
   "author": "Nikhil",
   "scripts": {
     "start:local": "export ENVIRONMENT_NAME=local && nodemon",
-    "start": "node server/index.js"
+    "start:production": "export ENVIRONMENT_NAME=production && node server/index.js"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "slack-notify": "^2.0.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
