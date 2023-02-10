@@ -28,6 +28,15 @@ export const init = () => {
     }
   });
 
+  app.get('/healthcheck', (req, res) => {
+    try {
+      const message = 'Service 2 is healthy!';
+      res.json({message});
+    } catch (error) {
+      throw new Error(error)
+    }
+  });
+
   // error handler middleware
   app.use((error, req, res, next) => {
     slackClient.send({

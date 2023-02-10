@@ -1,0 +1,28 @@
+// CHANGE healthcheck endpoint in the manifest files
+
+// copilot init -a "service-discovery-service1" -t "Load Balanced Web Service" -n "service-discovery-service1-prod-svc" -d ./Dockerfile
+
+// copilot env init --name prod --profile default --default-config
+
+// copilot env deploy --name prod
+
+// copilot deploy --name "service-discovery-service1-prod-svc" -e "prod"
+
+// http://servi-Publi-6NYIA64XZ0JL-1519312910.ap-southeast-1.elb.amazonaws.com/
+
+// copilot svc show --name service-discovery-service1-prod-svc (Get the internal service endpoint) (This command shows service network properties deployed with name 'service-discovery-service1-prod-svc')
+
+// vpc-0d5812af9cfc22bd8
+
+// copilot init -a "service-discovery-service2" -t "Load Balanced Web Service" -n "service-discovery-service2-prod-svc" -d ./Dockerfile
+
+// copilot env init --name prod --profile default --import-vpc-id vpc-0d5812af9cfc22bd8 
+
+// copilot env init --name prod --profile default --import-vpc-id vpc-0d5812af9cfc22bd8 --import-public-subnets subnet-0fa97859409bb719a,subnet-02673edb835c5874d --import-private-subnets subnet-015363691e55f7d72,subnet-02870b30d4711406a 
+// ERROR: check if VPC vpc-0d5812af9cfc22bd8 has DNS support enabled: describe enableDnsSupport attribute for VPC vpc-0a495bc54534c2e53: InvalidVpcID.NotFound: The vpc ID 'vpc-0a495bc54534c2e53' does not exist
+
+// copilot env deploy --name prod
+
+// copilot deploy --name "service-discovery-service2-prod-svc" -e "prod" 
+
+// http://servi-Publi-1VZGZZ4P5U009-1103921067.ap-southeast-1.elb.amazonaws.com
